@@ -1,0 +1,705 @@
+metaEosT0.f95:396:1:
+
+     d1n_ms = -m*(kappa/CST_nsat)*(1.0_pr/(1.0_pr + kappa))**2
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+metaEosT0.f95:402:1:
+
+     d1n_z = z/(3.0_pr*CST_nsat) + (CST_hbc/m)*(kappa/CST_nsat)*kF
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+metaEosT0.f95:410:1:
+
+     d1z_f = 8._pr*z**2*(dsqrt(1._pr+z**2))
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+metaEosT0.f95:416:1:
+
+     d1n_f = d1z_f*d1n_z
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+metaEosT0.f95:2518:1:
+
+  real (kind=pr)      :: T3,m,ms,ms_p,ms_n,z,z_p,z_n,kF,kF_p,f,kF_n,K,Kt_n,Kt_p,T3_p,T3_n
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+metaEosT0.f95:2519:1:
+
+  real (kind=pr)      :: rho_kin_n, rho_kin_p
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+metaEosT0.f95:2520:1:
+
+  real (kind=pr)      :: epsk, e2v_kin_n, e2v_kin_p,mterm,nterm
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+metaEosT0.f95:2529:1:
+
+  real (kind=pr)      :: d1n_ms_n,d1n_z_n,d1z_f_n,d1n_f_n,d1n_epsk_n
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+metaEosT0.f95:2530:1:
+
+  real (kind=pr)      :: d1n_ms_p,d1n_z_p,d1z_f_p,d1n_f_p,d1n_epsk_p
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+metaEosT0.f95:2531:1:
+
+  real (kind=pr)      :: d1d_f_n,d1d_ms_n,d1d_z_n,d1d_epsk_n,d1d_kF_n
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+metaEosT0.f95:2532:1:
+
+  real (kind=pr)      :: d1d_f_p,d1d_ms_p,d1d_z_p,d1d_epsk_p,d1d_kF_p
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+metaEosT0.f95:2537:4:
+
+     real (kind=pr)      :: d2n_ms_n,d2n_z_n,d2z_f_n,d2n_f_n,d2n_epsk_n
+    1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+metaEosT0.f95:2538:1:
+
+  real (kind=pr)      :: d2n_ms_p,d2n_z_p,d2z_f_p,d2n_f_p,d2n_epsk_p
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+metaEosT0.f95:3314:1:
+
+     o_eosl0%e2a_muon =  o_eosl0%e2v_muon / i_eosDen%den_b
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+metaEosT0.f95:3875:35:
+
+     real (kind=pr)      :: den_muon, mu_muon
+                                   1
+Warning: Unused variable ‘den_muon’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3874:29:
+
+     real (kind=pr)      :: g1, g2, gm
+                             1
+Warning: Unused variable ‘g1’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3874:33:
+
+     real (kind=pr)      :: g1, g2, gm
+                                 1
+Warning: Unused variable ‘g2’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3874:37:
+
+     real (kind=pr)      :: g1, g2, gm
+                                     1
+Warning: Unused variable ‘gm’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3845:43:
+
+   subroutine metaeos_T0_beta_npe(i_den,i_xd,i_coef,i_withq,o_eosDen,ibeta)
+                                           1
+Warning: Unused dummy argument ‘i_xd’ at (1) [-Wunused-dummy-argument]
+metaEosT0.f95:3867:32:
+
+     integer             :: i, id
+                                1
+Warning: Unused variable ‘id’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3875:44:
+
+     real (kind=pr)      :: den_muon, mu_muon
+                                            1
+Warning: Unused variable ‘mu_muon’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3869:29:
+
+     real (kind=pr)      :: xd
+                             1
+Warning: Unused variable ‘xd’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3871:33:
+
+     real (kind=pr)      :: xmuon1, xmuon2, xmuonm
+                                 1
+Warning: Unused variable ‘xmuon1’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3871:41:
+
+     real (kind=pr)      :: xmuon1, xmuon2, xmuonm
+                                         1
+Warning: Unused variable ‘xmuon2’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3871:49:
+
+     real (kind=pr)      :: xmuon1, xmuon2, xmuonm
+                                                 1
+Warning: Unused variable ‘xmuonm’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3872:50:
+
+     real (kind=pr)      :: xd1, xd2, xdm, dxd, xtt
+                                                  1
+Warning: Unused variable ‘xtt’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3664:29:
+
+     real (kind=pr)      :: g1, g2, gm
+                             1
+Warning: Unused variable ‘g1’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3664:33:
+
+     real (kind=pr)      :: g1, g2, gm
+                                 1
+Warning: Unused variable ‘g2’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3664:37:
+
+     real (kind=pr)      :: g1, g2, gm
+                                     1
+Warning: Unused variable ‘gm’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3659:29:
+
+     real (kind=pr)      :: xd
+                             1
+Warning: Unused variable ‘xd’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3661:49:
+
+     real (kind=pr)      :: xmuon1, xmuon2, xmuonm
+                                                 1
+Warning: Unused variable ‘xmuonm’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3662:50:
+
+     real (kind=pr)      :: xd1, xd2, xdm, dxd, xtt
+                                                  1
+Warning: Unused variable ‘xtt’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3469:82:
+
+   subroutine metaeos_T0_all(i_coef,i_eosDen,i_opt_beta,i_eosb,i_eosq,i_eosl,i_eosp,o_eosa)
+                                                                                  1
+Warning: Unused dummy argument ‘i_eosp’ at (1) [-Wunused-dummy-argument]
+metaEosT0.f95:3469:54:
+
+   subroutine metaeos_T0_all(i_coef,i_eosDen,i_opt_beta,i_eosb,i_eosq,i_eosl,i_eosp,o_eosa)
+                                                      1
+Warning: Unused dummy argument ‘i_opt_beta’ at (1) [-Wunused-dummy-argument]
+metaEosT0.f95:3489:26:
+
+     real (kind=pr) :: i_xt = 0._pr
+                          1
+Warning: Unused variable ‘i_xt’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3430:40:
+
+   subroutine metaeos_T0_photons(i_eosDen,i_opt_beta,o_eosp0)
+                                        1
+Warning: Unused dummy argument ‘i_eosden’ at (1) [-Wunused-dummy-argument]
+metaEosT0.f95:3430:51:
+
+   subroutine metaeos_T0_photons(i_eosDen,i_opt_beta,o_eosp0)
+                                                   1
+Warning: Unused dummy argument ‘i_opt_beta’ at (1) [-Wunused-dummy-argument]
+metaEosT0.f95:3175:24:
+
+     real(kind=pr) :: fen,fs,fp
+                        1
+Warning: Unused variable ‘fen’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3175:30:
+
+     real(kind=pr) :: fen,fs,fp
+                              1
+Warning: Unused variable ‘fp’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3176:26:
+
+     real(kind=pr) :: frhoA
+                          1
+Warning: Unused variable ‘frhoa’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:3175:27:
+
+     real(kind=pr) :: fen,fs,fp
+                           1
+Warning: Unused variable ‘fs’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2541:43:
+
+     real (kind=pr)                   :: chi, kappas, enthalpy
+                                           1
+Warning: Unused variable ‘chi’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2542:45:
+
+     real (kind=pr)                   :: coefn, coefp
+                                             1
+Warning: Unused variable ‘coefn’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2542:52:
+
+     real (kind=pr)                   :: coefn, coefp
+                                                    1
+Warning: Unused variable ‘coefp’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2528:52:
+
+     real (kind=pr)                   :: d1_t2a_b_den, d1_t2a_b_xe
+                                                    1
+Warning: Unused variable ‘d1_t2a_b_den’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2528:65:
+
+     real (kind=pr)                   :: d1_t2a_b_den, d1_t2a_b_xe
+                                                                 1
+Warning: Unused variable ‘d1_t2a_b_xe’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2527:54:
+
+     real (kind=pr)                   :: d1_t2aFG_b_den
+                                                      1
+Warning: Unused variable ‘d1_t2afg_b_den’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2536:52:
+
+     real (kind=pr), dimension(0:4)   :: d2_e2a_b_den, d2_e2a_b_den_xe, d2_e2a_b_xe
+                                                    1
+Warning: Unused variable ‘d2_e2a_b_den’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2536:69:
+
+     real (kind=pr), dimension(0:4)   :: d2_e2a_b_den, d2_e2a_b_den_xe, d2_e2a_b_xe
+                                                                     1
+Warning: Unused variable ‘d2_e2a_b_den_xe’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2536:82:
+
+     real (kind=pr), dimension(0:4)   :: d2_e2a_b_den, d2_e2a_b_den_xe, d2_e2a_b_xe
+                                                                                  1
+Warning: Unused variable ‘d2_e2a_b_xe’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2535:52:
+
+     real (kind=pr)                   :: d2_t2a_b_den, d2_t2a_b_den_xe, d2_t2a_b_xe
+                                                    1
+Warning: Unused variable ‘d2_t2a_b_den’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2535:69:
+
+     real (kind=pr)                   :: d2_t2a_b_den, d2_t2a_b_den_xe, d2_t2a_b_xe
+                                                                     1
+Warning: Unused variable ‘d2_t2a_b_den_xe’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2535:82:
+
+     real (kind=pr)                   :: d2_t2a_b_den, d2_t2a_b_den_xe, d2_t2a_b_xe
+                                                                                  1
+Warning: Unused variable ‘d2_t2a_b_xe’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2534:54:
+
+     real (kind=pr)                   :: d2_t2aFG_b_den
+                                                      1
+Warning: Unused variable ‘d2_t2afg_b_den’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2540:52:
+
+     real (kind=pr)                   :: d3_t2a_b_den
+                                                    1
+Warning: Unused variable ‘d3_t2a_b_den’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2541:61:
+
+     real (kind=pr)                   :: chi, kappas, enthalpy
+                                                             1
+Warning: Unused variable ‘enthalpy’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2541:51:
+
+     real (kind=pr)                   :: chi, kappas, enthalpy
+                                                   1
+Warning: Unused variable ‘kappas’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2518:73:
+
+  real (kind=pr)      :: T3,m,ms,ms_p,ms_n,z,z_p,z_n,kF,kF_p,f,kF_n,K,Kt_n,Kt_p,T3_p,T3_n
+                                                                         1
+Warning: Unused variable ‘kt_n’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2518:78:
+
+  real (kind=pr)      :: T3,m,ms,ms_p,ms_n,z,z_p,z_n,kF,kF_p,f,kF_n,K,Kt_n,Kt_p,T3_p,T3_n
+                                                                              1
+Warning: Unused variable ‘kt_p’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2514:58:
+
+     real (kind=pr)                   :: msnc2, mspc2, msNM, msSM
+                                                          1
+Warning: Unused variable ‘msnm’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2514:64:
+
+     real (kind=pr)                   :: msnc2, mspc2, msNM, msSM
+                                                                1
+Warning: Unused variable ‘mssm’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2510:48:
+
+     real (kind=pr)                   :: tmp, sum
+                                                1
+Warning: Unused variable ‘sum’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2510:43:
+
+     real (kind=pr)                   :: tmp, sum
+                                           1
+Warning: Unused variable ‘tmp’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2516:54:
+
+     real (kind=pr)                   :: x, zn, zp, zsn, zsp, znSM, zpSM, zNM, zsnSM, zspSM, zsNM
+                                                      1
+Warning: Unused variable ‘zsn’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2516:59:
+
+     real (kind=pr)                   :: x, zn, zp, zsn, zsp, znSM, zpSM, zNM, zsnSM, zspSM, zsNM
+                                                           1
+Warning: Unused variable ‘zsp’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2061:43:
+
+     real (kind=pr)                   :: chi, kappa, enthalpy
+                                           1
+Warning: Unused variable ‘chi’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2062:45:
+
+     real (kind=pr)                   :: coefn, coefp
+                                             1
+Warning: Unused variable ‘coefn’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2062:52:
+
+     real (kind=pr)                   :: coefn, coefp
+                                                    1
+Warning: Unused variable ‘coefp’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2054:52:
+
+     real (kind=pr)                   :: d1_t2a_b_den, d1_t2a_b_xe
+                                                    1
+Warning: Unused variable ‘d1_t2a_b_den’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2054:65:
+
+     real (kind=pr)                   :: d1_t2a_b_den, d1_t2a_b_xe
+                                                                 1
+Warning: Unused variable ‘d1_t2a_b_xe’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2053:54:
+
+     real (kind=pr)                   :: d1_t2aFG_b_den
+                                                      1
+Warning: Unused variable ‘d1_t2afg_b_den’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2058:52:
+
+     real (kind=pr), dimension(0:4)   :: d2_e2a_b_den, d2_e2a_b_den_xe, d2_e2a_b_xe
+                                                    1
+Warning: Unused variable ‘d2_e2a_b_den’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2058:69:
+
+     real (kind=pr), dimension(0:4)   :: d2_e2a_b_den, d2_e2a_b_den_xe, d2_e2a_b_xe
+                                                                     1
+Warning: Unused variable ‘d2_e2a_b_den_xe’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2058:82:
+
+     real (kind=pr), dimension(0:4)   :: d2_e2a_b_den, d2_e2a_b_den_xe, d2_e2a_b_xe
+                                                                                  1
+Warning: Unused variable ‘d2_e2a_b_xe’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2057:52:
+
+     real (kind=pr)                   :: d2_t2a_b_den, d2_t2a_b_den_xe, d2_t2a_b_xe
+                                                    1
+Warning: Unused variable ‘d2_t2a_b_den’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2057:69:
+
+     real (kind=pr)                   :: d2_t2a_b_den, d2_t2a_b_den_xe, d2_t2a_b_xe
+                                                                     1
+Warning: Unused variable ‘d2_t2a_b_den_xe’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2057:82:
+
+     real (kind=pr)                   :: d2_t2a_b_den, d2_t2a_b_den_xe, d2_t2a_b_xe
+                                                                                  1
+Warning: Unused variable ‘d2_t2a_b_xe’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2056:54:
+
+     real (kind=pr)                   :: d2_t2aFG_b_den
+                                                      1
+Warning: Unused variable ‘d2_t2afg_b_den’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2060:52:
+
+     real (kind=pr)                   :: d3_t2a_b_den
+                                                    1
+Warning: Unused variable ‘d3_t2a_b_den’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2061:60:
+
+     real (kind=pr)                   :: chi, kappa, enthalpy
+                                                            1
+Warning: Unused variable ‘enthalpy’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2061:50:
+
+     real (kind=pr)                   :: chi, kappa, enthalpy
+                                                  1
+Warning: Unused variable ‘kappa’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2047:48:
+
+     real (kind=pr)                   :: tmp, sum
+                                                1
+Warning: Unused variable ‘sum’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:2047:43:
+
+     real (kind=pr)                   :: tmp, sum
+                                           1
+Warning: Unused variable ‘tmp’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:1484:31:
+
+     real (kind=pr) :: d1kFN_nN1, d1kFN_nN2
+                               1
+Warning: Unused variable ‘d1kfn_nn1’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:1484:42:
+
+     real (kind=pr) :: d1kFN_nN1, d1kFN_nN2
+                                          1
+Warning: Unused variable ‘d1kfn_nn2’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:1456:53:
+
+   subroutine metaeos_T0_q1(i_coef,i_eosDen,i_opt_beta,i_withq,i_eosb0,o_eosq0)
+                                                     1
+Warning: Unused dummy argument ‘i_opt_beta’ at (1) [-Wunused-dummy-argument]
+metaEosT0.f95:1485:27:
+
+     real (kind=pr) :: xtest
+                           1
+Warning: Unused variable ‘xtest’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:1068:55:
+
+     real (kind=pr)                        :: kf_u, kf_d
+                                                       1
+Warning: Unused variable ‘kf_d’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:1068:49:
+
+     real (kind=pr)                        :: kf_u, kf_d
+                                                 1
+Warning: Unused variable ‘kf_u’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:844:33:
+
+   real (kind=pr) :: den, xd, denn, denp, xmuon, xt, xx
+                                 1
+Warning: Unused variable ‘denn’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:844:39:
+
+   real (kind=pr) :: den, xd, denn, denp, xmuon, xt, xx
+                                       1
+Warning: Unused variable ‘denp’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:843:26:
+
+   real (kind=pr) :: kappas, kappav, kappasym
+                          1
+Warning: Unused variable ‘kappas’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:843:44:
+
+   real (kind=pr) :: kappas, kappav, kappasym
+                                            1
+Warning: Unused variable ‘kappasym’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:843:34:
+
+   real (kind=pr) :: kappas, kappav, kappasym
+                                  1
+Warning: Unused variable ‘kappav’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:844:50:
+
+   real (kind=pr) :: den, xd, denn, denp, xmuon, xt, xx
+                                                  1
+Warning: Unused variable ‘xt’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:844:54:
+
+   real (kind=pr) :: den, xd, denn, denp, xmuon, xt, xx
+                                                      1
+Warning: Unused variable ‘xx’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:645:40:
+
+   real (kind=pr) :: e00, p00, de, dp, cs, cs2
+                                        1
+Warning: Unused variable ‘cs’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:645:45:
+
+   real (kind=pr) :: e00, p00, de, dp, cs, cs2
+                                             1
+Warning: Unused variable ‘cs2’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:645:32:
+
+   real (kind=pr) :: e00, p00, de, dp, cs, cs2
+                                1
+Warning: Unused variable ‘de’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:642:33:
+
+   real (kind=pr) :: den, xd, denn, denp, xmuon, xt, xx
+                                 1
+Warning: Unused variable ‘denn’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:642:39:
+
+   real (kind=pr) :: den, xd, denn, denp, xmuon, xt, xx
+                                       1
+Warning: Unused variable ‘denp’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:645:36:
+
+   real (kind=pr) :: e00, p00, de, dp, cs, cs2
+                                    1
+Warning: Unused variable ‘dp’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:641:26:
+
+   real (kind=pr) :: kappas, kappav, kappasym
+                          1
+Warning: Unused variable ‘kappas’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:641:44:
+
+   real (kind=pr) :: kappas, kappav, kappasym
+                                            1
+Warning: Unused variable ‘kappasym’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:641:34:
+
+   real (kind=pr) :: kappas, kappav, kappasym
+                                  1
+Warning: Unused variable ‘kappav’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:648:49:
+
+   real (kind=pr) :: xpre0, xrho0, cs_test, p_test
+                                                 1
+Warning: Unused variable ‘p_test’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:642:50:
+
+   real (kind=pr) :: den, xd, denn, denp, xmuon, xt, xx
+                                                  1
+Warning: Unused variable ‘xt’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:642:54:
+
+   real (kind=pr) :: den, xd, denn, denp, xmuon, xt, xx
+                                                      1
+Warning: Unused variable ‘xx’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:197:23:
+
+     real (kind=pr) :: d, m, ms, z, kF, kappa, f, epsk ! useful variables
+                       1
+Warning: Unused variable ‘d’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:195:35:
+
+     real (kind=pr) :: gSM, gNM, dNM, dSM
+                                   1
+Warning: Unused variable ‘dnm’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:195:40:
+
+     real (kind=pr) :: gSM, gNM, dNM, dSM
+                                        1
+Warning: Unused variable ‘dsm’ declared at (1) [-Wunused-variable]
+metaEosT0.f95:1551:0:
+
+           d1z_fQd = 8._pr*zQd**2*dsqrt(1._pr+zQd**2)
+ 
+Warning: ‘zqd’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+nle.f95:191:60:
+
+     integer                      :: i, j, k, in, in2, icount
+                                                            1
+Warning: Unused variable ‘icount’ declared at (1) [-Wunused-variable]
+nle.f95:191:40:
+
+     integer                      :: i, j, k, in, in2, icount
+                                        1
+Warning: Unused variable ‘j’ declared at (1) [-Wunused-variable]
+nle.f95:191:43:
+
+     integer                      :: i, j, k, in, in2, icount
+                                           1
+Warning: Unused variable ‘k’ declared at (1) [-Wunused-variable]
+nle.f95:194:40:
+
+     logical                      :: test
+                                        1
+Warning: Unused variable ‘test’ declared at (1) [-Wunused-variable]
+nle.f95:192:46:
+
+     real (kind=pr), dimension(n) :: y0, y1, y2
+                                              1
+Warning: Unused variable ‘y2’ declared at (1) [-Wunused-variable]
+nle.f95:99:43:
+
+     integer                      :: in, in2, icount, ii
+                                           1
+Warning: Unused variable ‘in2’ declared at (1) [-Wunused-variable]
+nle.f95:98:40:
+
+     integer                      :: i, j, k
+                                        1
+Warning: Unused variable ‘j’ declared at (1) [-Wunused-variable]
+nle.f95:98:43:
+
+     integer                      :: i, j, k
+                                           1
+Warning: Unused variable ‘k’ declared at (1) [-Wunused-variable]
+nle.f95:100:46:
+
+     real (kind=pr), dimension(n) :: y0, y1, y2
+                                              1
+Warning: Unused variable ‘y2’ declared at (1) [-Wunused-variable]
+crustSnaMod.f95:502:1:
+
+  m_p  = CST_mpc2
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+crustSnaMod.f95:503:1:
+
+  m_n  = CST_mnc2
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+crustSnaMod.f95:504:1:
+
+  pi   = CST_pi
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+crustSnaMod.f95:880:21:
+
+   integer :: iden, ii
+                     1
+Warning: Unused variable ‘ii’ declared at (1) [-Wunused-variable]
+crustSnaMod.f95:376:18:
+
+   LOGICAL :: check
+                  1
+Warning: Unused variable ‘check’ declared at (1) [-Wunused-variable]
+crustSnaMod.f95:346:50:
+
+ subroutine crustSna_compute_sna(crustSna_inp,crust)
+                                                  1
+Warning: Derived-type dummy argument ‘crust’ at (1) was declared INTENT(OUT) but was not set and does not have a default initializer [-Wunused-dummy-argument]
+crustSnaMod.f95:346:44:
+
+ subroutine crustSna_compute_sna(crustSna_inp,crust)
+                                            1
+Warning: Unused dummy argument ‘crustsna_inp’ at (1) [-Wunused-dummy-argument]
+crustSnaMod.f95:374:62:
+
+   real (kind=pr), dimension(:), allocatable  :: x, y, stp,fvec, v
+                                                              1
+Warning: Unused variable ‘fvec’ declared at (1) [-Wunused-variable]
+crustSnaMod.f95:374:65:
+
+   real (kind=pr), dimension(:), allocatable  :: x, y, stp,fvec, v
+                                                                 1
+Warning: Unused variable ‘v’ declared at (1) [-Wunused-variable]
+crustSnaMod.f95:375:59:
+
+   real (kind=pr)                             :: eps, nor,x1,x2,x3
+                                                           1
+Warning: Unused variable ‘x1’ declared at (1) [-Wunused-variable]
+crustSnaMod.f95:375:62:
+
+   real (kind=pr)                             :: eps, nor,x1,x2,x3
+                                                              1
+Warning: Unused variable ‘x2’ declared at (1) [-Wunused-variable]
+crustSnaMod.f95:375:65:
+
+   real (kind=pr)                             :: eps, nor,x1,x2,x3
+                                                                 1
+Warning: Unused variable ‘x3’ declared at (1) [-Wunused-variable]
+crustSnaMod.f95:276:58:
+
+ subroutine crustSna_compute_eos_sna(crustSna_inp,crust_eos)
+                                                          1
+Warning: Derived-type dummy argument ‘crust_eos’ at (1) was declared INTENT(OUT) but was not set and does not have a default initializer [-Wunused-dummy-argument]
+crustSnaMod.f95:276:48:
+
+ subroutine crustSna_compute_eos_sna(crustSna_inp,crust_eos)
+                                                1
+Warning: Unused dummy argument ‘crustsna_inp’ at (1) [-Wunused-dummy-argument]
+crustSnaMod.f95:310:27:
+
+   real (kind=pr) :: den,DNB
+                           1
+Warning: Unused variable ‘dnb’ declared at (1) [-Wunused-variable]
+crustSnaMod.f95:309:29:
+
+   integer        :: NPOINT,ii
+                             1
+Warning: Unused variable ‘ii’ declared at (1) [-Wunused-variable]
+crustSnaMod.f95:309:26:
+
+   integer        :: NPOINT,ii
+                          1
+Warning: Unused variable ‘npoint’ declared at (1) [-Wunused-variable]
+crustSnaMod.f95:207:51:
+
+ subroutine crustSna_compute_eos(coef_meta,coef_poly,crustSna_inp,withq,crust_eos)
+                                                   1
+Warning: Unused dummy argument ‘coef_poly’ at (1) [-Wunused-dummy-argument]
+crustSnaMod.f95:207:70:
+
+ subroutine crustSna_compute_eos(coef_meta,coef_poly,crustSna_inp,withq,crust_eos)
+                                                                      1
+Warning: Unused dummy argument ‘withq’ at (1) [-Wunused-dummy-argument]
+crustSnaMod.f95:156:0:
+
+      crustSna_inp%apair = apair
+ 
+Warning: ‘apair’ may be used uninitialized in this function [-Wmaybe-uninitialized]

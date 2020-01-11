@@ -1,0 +1,19 @@
+&crustPar
+  model       = "sly.dat",! choose between "sly.dat", "fps.dat", "fps_lorene.dat" or "meos" for the meta-model
+  nb          = 0.001 , ! baryon density in fm-3
+  temp        = 0.0,      ! temperature (MeV)
+  dobeta      = 0,      ! =0 no-beta-equilibrium (take Ye fixed), =1 solves the beta-equilibrium (vary Ye)
+  Ye_init = 0.3 ,       ! initial conditions for the search
+  ncl_init = 0.16 , cluster density in fm-3
+  I_init = 0.4 ,
+  doloopnb = 0 , ! =0 only one nb, =1 loop over nb
+  den_crust_min    = 0.0001,      ! min density in fm-3
+  den_crust_max    = 0.01,     ! max density in fm-3
+  ac = 0.7 ,
+  sigSurf = 1.1 ,
+  bSurf = 10.0 ,
+  pSurf = 3.0 ,
+  apair = 12.0/
+
+
+

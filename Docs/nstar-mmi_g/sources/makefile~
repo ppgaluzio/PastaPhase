@@ -1,0 +1,22 @@
+F95    = gfortran
+FFLAGS = -c -ffree-line-length-512 #-Wall -std=f95
+#F90    = ifort
+#FFLAGS = -c -checkall
+#MODPATH = ../../mymodules
+
+OBJS = acc.o cst.o metaEosT0Type.o metaEosT0.o polyEosT0Type.o polyEosT0.o spl.o crustSnaType.o nle.o crustSnaMod.o crustSnaMain.o 
+
+crustSna.e: $(OBJS)
+	$(F95) -o crustSna.e $(OBJS)
+
+#%.o: $(MODPATH)/%.f95
+#	$(F95) $(FFLAGS) $<
+
+%.o: %.f95
+	$(F95) $(FFLAGS) $<
+
+clean:
+	rm *.o *.mod
+
+cleanall:
+	rm *.o *.mod *.e
