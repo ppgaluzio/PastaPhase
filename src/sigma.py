@@ -10,6 +10,7 @@ The goal is to find the value of the scalar field sigma in the equation
 
 import numpy as np
 from scipy.integrate import quad
+from scipy.optimize import minimize
 
 
 def _integrand(k, m, gs, s):
