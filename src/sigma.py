@@ -11,7 +11,7 @@ The goal is to find the value of the scalar field sigma in the equation
 import numpy as np
 
 
-def _SqyuaredResidue(x, *args):
+def _SquaredResidue(x, *args):
     """
     Squared residue is an internal module function that returns the squared of
     the residue function.
