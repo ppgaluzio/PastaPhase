@@ -41,7 +41,7 @@ def _SquaredResidue(s, gs, ms, m, k):
     """
 
     y = gs * s
-    Int = quad(_integrand, 0, k, args=(m, gs, s))
+    Int = quad(_integrand, 0, k, args=(m, gs, s))[0]
     Residue = y - (gs/ms)**2 * (2/np.pi**2) * Int
 
     return Residue**2
