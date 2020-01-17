@@ -47,7 +47,7 @@ def _SquaredResidue(s, gs, ms, m, k):
     return Residue**2
 
 
-def SolveSigma(gs, ms, m, k, n_seeds=100):
+def SolveSigma(gs, ms, m, k, n_seeds=10):
     """
     SolveSigma
     ----------
