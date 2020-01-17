@@ -13,7 +13,7 @@ from scipy.integrate import quad
 
 
 def _integrand(k, m, gs, s):
-    return (m - gs * s) / np.sqrt(k**2 + (m - gs * s)**2)
+    return k**2 * (m - gs * s) / np.sqrt(k**2 + (m - gs * s)**2)
 
 
 def _SquaredResidue(s, gs, ms, m, k):
