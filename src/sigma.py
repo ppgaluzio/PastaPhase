@@ -47,7 +47,7 @@ def _SquaredResidue(s, gs, ms, m, k):
     return Residue**2
 
 
-def SolveSigma(gs, ms, m, k, n_seeds=10):
+def SolveSigma(gs, ms, m, k, n_seeds=10, verbose=False):
     """
     SolveSigma
     ----------
@@ -63,7 +63,7 @@ def SolveSigma(gs, ms, m, k, n_seeds=10):
     """
 
     s_min = 0
-    s_max = 1000
+    s_max = 10
     s_amp = s_max - s_min
 
     FoundSolution = False
@@ -79,6 +79,8 @@ def SolveSigma(gs, ms, m, k, n_seeds=10):
             if s is None or res.fun < min_res:
                 s = res.x
                 min_res = res.fun
+                if verbose:
+                    print("Found solution with residue {}".format(min_res))
                 FoundSolution = True
 
     if FoundSolution:
