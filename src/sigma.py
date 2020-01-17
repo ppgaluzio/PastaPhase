@@ -13,6 +13,13 @@ from scipy.integrate import quad
 from scipy.optimize import minimize
 
 
+class ConvergenceError(Exception):
+    """
+    Raised when the alogithm did not converge
+    """
+    pass
+
+
 def _integrand(k, m, gs, s):
     return k**2 * (m - gs * s) / np.sqrt(k**2 + (m - gs * s)**2)
 
