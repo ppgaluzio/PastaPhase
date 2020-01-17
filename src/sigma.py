@@ -45,3 +45,43 @@ def _SquaredResidue(s, gs, ms, m, k):
     Residue = y - (gs/ms)**2 * (2/np.pi**2) * Int
 
     return Residue**2
+
+
+def SolveSigma(gs, ms, m, k, n_seeds=100):
+    """
+    SolveSigma
+    ----------
+
+    Solve self consistent equation to find the values of the scalar field sigma
+
+    Parameters:
+    gs: g_sigma
+    ms: m_sigma
+    m: m (mass)
+    k: fermi energy
+    n_seeds: number of different seeds for the optimization
+    """
+
+    s_min = 0
+    s_max = 1000
+    s_amp = s_max - s_min
+
+    FoundSolution = False
+    s = None
+    min_res = np.inf
+
+    s_seeds = np.random.rand(n_seeds) * s_amp + s_min
+
+    for s0 in s_seeds:
+        res = minimize(_SquaredResidue, s0, args=(gs, ms, m, k))
+
+        if res.success:
+            if s is None or res.fun < min_res:
+                s = res.x
+                min_res = res.fun
+                FoundSolution = True
+
+    if FoundSolution:
+        return s
+    else:
+        raise ConvergenceError("Minimize did not converge")
