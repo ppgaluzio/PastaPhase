@@ -3,4 +3,5 @@
 **/*.rej
 **/*.png
 **/__pycache__
+**/*\#
 test_scripts
