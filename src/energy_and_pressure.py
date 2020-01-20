@@ -33,7 +33,7 @@ def pressure(ms, sigma, mw, w0, k, gs, m):
     p = - 0.5 * ms**2 * sigma**2 \
         + 0.5 * mw**2 * w0**2 \
         + (1/3) * (2/np.pi**2) \
-        * quad(_int_p, 0, k, args=(m, gs, sigma))
+        * quad(_int_p, 0, k, args=(m, gs, sigma))[0]
 
     return p
 
