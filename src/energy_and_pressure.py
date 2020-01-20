@@ -5,7 +5,7 @@ from scipy.integrate import quad
 
 
 def _int_e(k, m, gs, sigma):
-    return np.srqt(k**2 + (m - gs * sigma)**2) * k**2
+    return np.sqrt(k**2 + (m - gs * sigma)**2) * k**2
 
 
 def _int_p(k, m, gs, sigma):
