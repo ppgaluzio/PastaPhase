@@ -8,6 +8,10 @@ def _int_e(k, m, gs, sigma):
     return np.srqt(k**2 + (m - gs * sigma)**2) * k**2
 
 
+def _int_p(k, m, gs, sigma):
+    return k**4 / np.sqrt(k**2 + (m - gs * sigma)**2)
+
+
 def energy(ms, sigma, mw, w0, k, gs, m):
     """
     energy
