@@ -20,8 +20,8 @@ e = np.zeros_like(kk)
 p = np.zeros_like(kk)
 
 for i, k in enumerate(kk):
-    print(i, 'k = ', k)
     sigma = ss.SolveSigma(gs, ms, m, k, tol=1.0e-5, n_seeds=100)
+    print(i, 'k = ', k, ' sigma = ', sigma)
     e[i] = ep.energy(ms, sigma, mw, w0, k, gs, m)
     p[i] = ep.pressure(ms, sigma, mw, w0, k, gs, m)
 
