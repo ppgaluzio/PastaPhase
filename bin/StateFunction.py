@@ -21,7 +21,7 @@ p = np.zeros_like(kk)
 
 for i, k in enumerate(kk):
     print(i, 'k = ', k)
-    sigma = ss.SolveSigma(gs, ms, m, k)
+    sigma = ss.SolveSigma(gs, ms, m, k, n_seeds=100)
     e[i] = ep.energy(ms, sigma, mw, w0, k, gs, m)
     p[i] = ep.pressure(ms, sigma, mw, w0, k, gs, m)
 
