@@ -25,5 +25,8 @@ for i, k in enumerate(kk):
     e[i] = ep.energy(ms, sigma, mw, w0, k, gs, m)
     p[i] = ep.pressure(ms, sigma, mw, w0, k, gs, m)
 
-pl.plot(e, p)
+pl.plot(p, e)
+pl.grid()
+pl.xlabel(r"$p$")
+pl.ylabel(r"$\varepsilon$")
 pl.show()
