@@ -47,7 +47,7 @@ def _SquaredResidue(s, gs, ms, m, k):
     return Residue**2
 
 
-def SolveSigma(gs, ms, m, k, n_seeds=10, verbose=False):
+def SolveSigma(gs, ms, m, k, n_seeds=10, tol=1.0e-6, verbose=False):
     """
     SolveSigma
     ----------
@@ -81,9 +81,12 @@ def SolveSigma(gs, ms, m, k, n_seeds=10, verbose=False):
                 min_res = res.fun
                 if verbose:
                     print("Found solution with residue {}".format(min_res))
+            if min_res < tol:
                 FoundSolution = True
+                break
 
     if FoundSolution:
         return s
     else:
+        print("Minimal value found for residue = {}".format(min_res))
         raise ConvergenceError("Minimize did not converge")
