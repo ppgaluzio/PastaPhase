@@ -76,12 +76,13 @@ def SolveSigma(gs, ms, m, k, n_seeds=10, verbose=False):
         res = minimize(_SquaredResidue, s0, args=(gs, ms, m, k))
 
         if res.success:
-            if s is None or res.fun < min_res:
-                s = res.x
-                min_res = res.fun
-                if verbose:
-                    print("Found solution with residue {}".format(min_res))
-                FoundSolution = True
+            # if s is None or res.fun < min_res:
+            s = res.x
+            min_res = res.fun
+            if verbose:
+                print("Found solution with residue {}".format(min_res))
+            FoundSolution = True
+            break
 
     if FoundSolution:
         return s
