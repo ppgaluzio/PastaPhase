@@ -9,24 +9,35 @@ import pathmagic                # noqa
 import sigma as ss
 import energy_and_pressure as ep
 
-kk = np.linspace(0, 100, 50)
-ms = 100
-mw = 25
-m = 2
-gs = 150
-w0 = 0.2
+hc = 197.33
+rho_inf = 0.05
+rho_sup = 1.00
+Npts = 200
 
-e = np.zeros_like(kk)
-p = np.zeros_like(kk)
+rho = np.linspace(rho_inf*hc**3,
+                  rho_sup*hc**3,
+                  Npts)
 
-for i, k in enumerate(kk):
+m = 939
+
+g0 = 10.608
+gs = 9.5684
+ms = 550
+mw = 783
+
+e = np.zeros_like(rho)
+p = np.zeros_like(rho)
+
+for i, r in enumerate(rho):
+    k = (1.5 * (np.pi**2) * r)**(1/3)
+    w0 = g0 * r / mw**2
     sigma = ss.SolveSigma(gs, ms, m, k, tol=1.0e-5, n_seeds=100)
     print(i, 'k = ', k, ' sigma = ', sigma)
-    e[i] = ep.energy(ms, sigma, mw, w0, k, gs, m)
-    p[i] = ep.pressure(ms, sigma, mw, w0, k, gs, m)
+    e[i] = ep.energy(ms, sigma, mw, w0, k, gs, m) / hc**3
+    p[i] = ep.pressure(ms, sigma, mw, w0, k, gs, m) / hc**3
 
-pl.plot(p, e)
+pl.plot(e, p)
 pl.grid()
-pl.xlabel(r"$p$")
-pl.ylabel(r"$\varepsilon$")
+pl.ylabel(r"$p$")
+pl.xlabel(r"$\varepsilon$")
 pl.show()
