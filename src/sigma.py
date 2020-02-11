@@ -88,5 +88,5 @@ def SolveSigma(gs, ms, m, k, n_seeds=10, tol=1.0e-6, verbose=False):
     if FoundSolution:
         return s
     else:
-        print("Minimal value found for residue = {}".format(min_res))
+        print(f"Minimal value found for residue = {min_res}")
         raise ConvergenceError("Minimize did not converge")
