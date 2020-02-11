@@ -20,7 +20,7 @@ rho = np.linspace(rho_inf*hc**3,
 
 m = 939
 
-g0 = 10.608
+g0 = 10.608                    #coupling constant omega-nucleon
 gs = 9.5684
 ms = 550
 mw = 783
