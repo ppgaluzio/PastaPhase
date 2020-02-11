@@ -56,8 +56,8 @@ def energy(ms, sigma, mw, w0, k, gs, m):
     m: mass
     """
 
-    e = + 0.5 * ms**2 + sigma**2 \
-        + 0.5 * mw**2 + w0**2 \
+    e = + 0.5 * ms**2 * sigma**2 \
+        + 0.5 * mw**2 * w0**2 \
         + (2 / np.pi**2) \
         * quad(_int_e, 0, k, args=(m, gs, sigma))[0]
 
