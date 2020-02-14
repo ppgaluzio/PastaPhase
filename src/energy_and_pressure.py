@@ -12,7 +12,7 @@ def _int_p(k, m, gs, sigma):
     return k**4 / np.sqrt(k**2 + (m - gs * sigma)**2)
 
 
-def pressure(ms, sigma, mw, w0, k, gs, m):
+def pressure(ms, mRho, rho, sigma, mw, w0, k, gs, m):
     """
     pressure
     --------
@@ -32,13 +32,14 @@ def pressure(ms, sigma, mw, w0, k, gs, m):
 
     p = - 0.5 * ms**2 * sigma**2 \
         + 0.5 * mw**2 * w0**2 \
+        + 0.5 * mRho**2 * rho**2 \
         + (1/3) * (2/np.pi**2) \
         * quad(_int_p, 0, k, args=(m, gs, sigma))[0]
 
     return p
 
 
-def energy(ms, sigma, mw, w0, k, gs, m):
+def energy(ms, mRho, rho, sigma, mw, w0, k, gs, m):
     """
     energy
     ------
@@ -58,6 +59,7 @@ def energy(ms, sigma, mw, w0, k, gs, m):
 
     e = + 0.5 * ms**2 * sigma**2 \
         + 0.5 * mw**2 * w0**2 \
+      + 0.5 * mRho**2 * rho**2 \
         + (2 / np.pi**2) \
         * quad(_int_e, 0, k, args=(m, gs, sigma))[0]
 
