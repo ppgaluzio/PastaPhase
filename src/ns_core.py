@@ -75,12 +75,27 @@ class Core(object):
 
     @m.setter
     def m(self, m):
+        if not isinstance(m, (int, float)):
+            raise TypeError(f"m must be float, {type(m)} passed")
+
         if m < 0:
             warnings.warn(f"Mass must be positive-valued, {m} was passed "
-                          "setting new value to zero")
+                          f"setting new value to zero")
             self.__m = 0
 
-    def define_density(self, rho_inf, rho_sup, npts=100):
+    @property
+    def Yp(self):
+        return self.__Yp
+
+    @Yp.setter
+    def Yp(self, Yp):
+        if not isinstance(Yp, (int, float)):
+            raise TypeError(f"Yp must be float, {type(Yp)} passed")
+        if Yp < 0 or Yp > 1:
+            warnings.warn(f"Proton fraction (Yp) must be between 0 and 1, "
+                          f"Yp = {Yp} instead, changed to default 0.5")
+            self.__Yp = 0.5
+
         """
         define_density
         --------------
