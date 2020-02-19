@@ -5,9 +5,9 @@ import matplotlib.pyplot as pl
 import pandas as pd
 import warnings
 
-from .sigma import SolveSigma
-from .energy_and_pressure import energy
-from .energy_and_pressure import pressure
+from sigma import SolveSigma
+from energy_and_pressure import energy
+from energy_and_pressure import pressure
 
 
 # XXX: we need to make sure that the units are consistent throughout
@@ -195,11 +195,13 @@ class Core(object):
 
         return None
 
-    def PlotaStateFunction(self, filename=None):
+    def PlotaStateFunction(self, show=True, filename=None):
         """Plota the state function
 
         Parameters
         ==========
+
+        show : boolean (default True), if true show the graphs at runtime
 
         filename : string (default None), name of the file to save the
         plot, if None only show the figure
@@ -218,9 +220,13 @@ class Core(object):
         ax.set_ylabel(r'$p$')
         ax.set_xlabel(r'$\varepsilon$')
 
-        fig.show()
+        if show:
+            fig.show()
 
         if filename is not None:
             fig.savefig(filename)
+
+        if show:
+            pl.show()
 
         return None
