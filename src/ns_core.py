@@ -18,24 +18,56 @@ from .energy_and_pressure import pressure
 # the star as a whole and maybe include these into a star class as a
 # parent class
 
-class Core():
+class Core(object):
+    """Solve model equations for the core of a neutron star
+
+    Attributes
+    ==========
+
+    m : positive float, nucleon mass (MeV)
+
+    sf : pandas DataFrame, state function of the star core. Columns
+    are barionic density, energy density and pressure. Defined after
+    call of StateFunction method
+
+    Methods
+    =======
+
+    define_density : Define a numpy array w/ the barionic density of
+    the star core
+
     """
-    Core
-    ----
 
-    Solve model equations for Core of a neutron star
+    def __init__(self, m, Yp=0.5, verbose=False):
+        """Solve model equations for the core of a neutron star
 
-    input
-    -----
+        Parameters
+        ==========
 
-    m :: mass (unit?)
-    hc :: unity converting factor
+        m : positive float, nucleon mass (MeV)
 
-    """
-    def __init__(self, m, hc):
+        Yp : float (0 <= Yp <= 1, default 0.5), proton fraction
+
+        verbose : boolean (default False), verbose output
+
+        """
         super(Core, self).__init__()
-        self.m = m
-        self.hc = hc
+
+        self.vprint = print if verbose else lambda *a, **k: None
+
+        self.__m = m
+        self.__Yp = Yp
+
+        self.__hc = 197.33      # MeV.fm (?)
+
+        self.__gw = 12.8679990675   # coupling constant omega-nucleon
+        self.__gs = 10.2170005383   # coupling constant sigma-nucleon
+        self.__gRho = 8.92188320928  # coupling constant rho-nucleon
+        self.__ms = 508.194          # sigma mass in MeV
+        self.__mw = 782.501          # omega mass in MeV
+        self.__mRho = 763.0          # rho mass in MeV
+
+        return None
 
     @property
     def m(self):
