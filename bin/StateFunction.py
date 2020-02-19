@@ -10,8 +10,8 @@ import sigma as ss
 import energy_and_pressure as ep
 
 hc = 197.33                    # MeV.fm
-nB_inf = 0.05                 # minimum value for the barionic density in fm^-3 
-nB_sup = 0.70                 # maximum value for the barionic density in fm^-3 
+nB_inf = 0.05                 # minimum value for the barionic density in fm^-3
+nB_sup = 0.70                 # maximum value for the barionic density in fm^-3
 Npts = 200                     # number of points to the uniform matter EoS table
 
 #NLE set of parameters
@@ -19,8 +19,8 @@ m = 939.0                       #nucleon mass in MeV
 gw = 12.8679990675              #coupling constant omega-nucleon
 gs = 10.2170005383              #coupling constant sigma-nucleon
 gRho = 8.92188320928            #coupling constant rho-nucleon
-ms = 508.194                    # sigma mass in MeV    
-mw = 782.501                    # omega mass in MeV   
+ms = 508.194                    # sigma mass in MeV
+mw = 782.501                    # omega mass in MeV
 mRho = 763.0                    # rho mass in MeV
 
 #defines proton fraction: Yp = (number of protons)/(number of barions)
