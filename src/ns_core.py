@@ -96,30 +96,131 @@ class Core(object):
                           f"Yp = {Yp} instead, changed to default 0.5")
             self.__Yp = 0.5
 
+    def __define_density(self, nB_inf, nB_sup, npts):
+        """Define a numpy array w/ the barionic density of the star core
+
+        Parameters
+        ==========
+
+        nB_inf : positive float, minimum value for the barionic
+        density (fm^-3)
+
+        nB_sup : positive float, maximum value for the barionic
+        density (fm^-3). nB_sup must be larger than nB_inf.
+
+        npts : int (default 100), number of density values calculated
+        between nB_inf and nB_sup
+
+        Raises
+        ======
+
+        ValueError : if nBsup <= nb_inf, or if both values are <= 0
         """
-        define_density
-        --------------
 
-        Define a numpy array w/ the density of the star core
+        if not isinstance(nB_inf, (int, float)):
+            raise TypeError(f"nB_inf of type{type(nB_inf)}, "
+                            f"should be int or float")
 
-        input
-        -----
-        rho_inf :: inferior bound to the array
-        rho_sup :: superior bound to the array
-        npts (100) :: number of points to be calculated
+        if not isinstance(nB_sup, (int, float)):
+            raise TypeError(f"rho_inf of type{type(nB_inf)}, "
+                            f"should be int or float")
+
+        if nB_inf <= 0:
+            raise ValueError(f"nB_inf must be positive, "
+                             f"{nB_inf} passed instead.")
+
+        if nB_sup <= 0:
+            raise ValueError(f"nB_sup must be positive, "
+                             f"{nB_sup} passed instead.")
+
+        if nB_sup <= nB_inf:
+            raise ValueError(f"nB_sup must be > nB_inf, "
+                             f"instead nB_sup = {nB_sup} "
+                             f"and nB_inf = {nB_inf}")
+
+        self.__nB = np.linspace(nB_inf * self.__hc**3,
+                                nB_sup * self.__hc**3,
+                                npts)
+
+        return None
+
+    def StateFunction(self, nB_inf, nB_sup, npts=100):
+        """Calculate the state function of the star core
+
+        Parameters
+        ==========
+
+        nB_inf : positive float, minimum value for the barionic
+        density (fm^-3)
+
+        nB_sup : positive float, maximum value for the barionic
+        density (fm^-3). nB_sup must be larger than nB_inf.
+
+        npts : int (default 100), number of density values calculated
+        between nB_inf and nB_sup
+
+        Attribute
+        =========
+
+        sf : pandas DataFrame, state function of the star core. Columns
+        are barionic density, energy density and pressure
+
         """
 
-        if not isinstance(rho_inf, (int, float)):
-            raise TypeError(f"rho_inf of type{type(rho_inf)}, "
-                            "should be int or float}")
+        self.__define_density(nB_inf, nB_sup, npts=npts)
 
-        if not isinstance(rho_sup, (int, float)):
-            raise TypeError(f"rho_inf of type{type(rho_inf)}, "
-                            "should be int or float}")
+        e = np.zeros_like(self.__nB)   # baryons energy density (MeV/fm^3)
+        p = np.zeros_like(self.__nB)   # barionic pressure  (MeV/fm^3)
 
-        self.rho = np.linspace(rho_inf * self.hc**3,
-                               rho_sup * self.hc**3,
-                               npts)
-        self.npts = npts
+        for i, n in enumerate(self.__nB):
+            k = (1.5 * (np.pi**2) * n)**(1/3)  # fermi momentum
+            w0 = self.__gw * n / self.__mw**2  # meson omega
+            nB_p = self.__Yp * n               # density of protons
+            nB_n = (1.0 - self.__Yp) * n       # density of electrons
+            rho = 0.5 * self.__gRho * (nB_p - nB_n) / self.__mw**2  # meson rho
+
+            sigma = SolveSigma(self.__gs, self.__ms, self.m, k,
+                               tol=1.0e-5, n_seeds=100)
+            self.vprint(i, 'k = ', k, ' sigma = ', sigma)
+            e[i] = energy(self.__ms, self.__mRho, rho, sigma,
+                          self.__mw, w0, k, self.__gs, self.m)
+            p[i] = pressure(self.__ms, self.__mRho, rho, sigma,
+                            self.__mw, w0, k, self.__gs, self.m)
+
+        e = e / self.__hc**3
+        p = p / self.__hc**3
+
+        self.sf = pd.DataFrame(np.array([self.__nB, e, p]).T,
+                               columns=['nB', 'e', 'p'])
+
+        return None
+
+    def PlotaStateFunction(self, filename=None):
+        """Plota the state function
+
+        Parameters
+        ==========
+
+        filename : string (default None), name of the file to save the
+        plot, if None only show the figure
+
+        """
+
+        if not hasattr(self, 'sf'):
+            warnings.warn(f"StateFunction method must be called prior",
+                          RuntimeWarning)
+            return None
+
+        fig, ax = pl.subplots()
+
+        ax.plot(self.sf['e'], self.sf['p'])
+        ax.grid()
+        ax.set_ylabel(r'$p$')
+        ax.set_xlabel(r'$\varepsilon$')
+
+        fig.show()
+
+        if filename is not None:
+            fig.savefig(filename)
 
         return None
