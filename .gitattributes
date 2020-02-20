@@ -1,1 +1,3 @@
 oldcode/* linguistic-vendored
+*.py linguist-detectable=true
+*.f linguist-detectable=false
