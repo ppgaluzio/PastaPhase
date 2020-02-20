@@ -24,11 +24,31 @@ class models(object):
         return
 
     def coupling_constants(self, gw, gs, grho):
+        """define the coupling constants of the model
+
+        Parameters
+        ==========
+
+        gw : float, coupling constant omega-nucleon
+        gs : float, coupling constant sigma-nucleon
+        gRho : float, coupling constant rho-nucleon
+
+        """
         self.gw = gw
         self.gs = gs
         self.grho = grho
 
     def masses(self, mw, ms, mrho):
+        """define the masses of the model
+
+        Parameters
+        ==========
+
+        mw : float, omega mass in MeV
+        ms : float, sigma mass in MeV
+        mrho : float, rho mass in MeV
+
+        """
         self.mw = mw
         self.ms = ms
         self.mrho = mrho
@@ -44,7 +64,7 @@ class models(object):
         """
         self.update_f = update_f
 
-    def update(self, density):
+    def __update(self, density):
         if self.update_f is not None:
             self.gw, self.gs, self.grho, self.mw, self.ms, self.mrho = \
                 self.update_f(density)
@@ -222,7 +242,7 @@ class Core(object):
 
         for i, n in enumerate(self.__nB):
 
-            self.model.update(n)      # update model
+            self.model.__update(n)      # update model
 
             k = (1.5 * (np.pi**2) * n)**(1/3)        # fermi momentum
             w0 = self.model.gw * n / self.model.mw**2  # meson omega
