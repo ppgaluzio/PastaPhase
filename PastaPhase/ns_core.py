@@ -9,7 +9,6 @@ from sigma import SolveSigma
 from energy_and_pressure import energy
 from energy_and_pressure import pressure
 
-
 # XXX: we need to make sure that the units are consistent throughout
 # the code, and eventualy pass in the class which unit system the user
 # will prefer
@@ -38,13 +37,17 @@ class Core(object):
 
     """
 
-    def __init__(self, m, Yp=0.5, verbose=False):
+    __MODELS = ['nl3']
+
+    def __init__(self, m, model, Yp=0.5, verbose=False):
         """Solve model equations for the core of a neutron star
 
         Parameters
         ==========
 
         m : positive float, nucleon mass (MeV)
+
+        model: string, name of the model to be implemented. Valid values: 'nl3'
 
         Yp : float (0 <= Yp <= 1, default 0.5), proton fraction
 
@@ -57,6 +60,12 @@ class Core(object):
 
         self.__m = m
         self.__Yp = Yp
+
+        if model in self.__MODELS:
+            self.model = model
+        else:
+            raise ValueError(f"model must be one of {self.__MODELS}, "
+                             f"{model} given")
 
         self.__hc = 197.33      # MeV.fm (?)
 
