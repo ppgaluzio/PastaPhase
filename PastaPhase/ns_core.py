@@ -17,6 +17,59 @@ from energy_and_pressure import pressure
 # the star as a whole and maybe include these into a star class as a
 # parent class
 
+
+class models(object):
+    def __init__(self):
+        self.update_f = None
+        return
+
+    def coupling_constants(self, gw, gs, grho):
+        """define the coupling constants of the model
+
+        Parameters
+        ==========
+
+        gw : float, coupling constant omega-nucleon
+        gs : float, coupling constant sigma-nucleon
+        gRho : float, coupling constant rho-nucleon
+
+        """
+        self.gw = gw
+        self.gs = gs
+        self.grho = grho
+
+    def masses(self, mw, ms, mrho):
+        """define the masses of the model
+
+        Parameters
+        ==========
+
+        mw : float, omega mass in MeV
+        ms : float, sigma mass in MeV
+        mrho : float, rho mass in MeV
+
+        """
+        self.mw = mw
+        self.ms = ms
+        self.mrho = mrho
+
+    def def_update(self, update_f):
+        """define update of the model
+
+        Parameter
+        =========
+
+        update_f : function
+                   gw, gs, gRho, mw, ms, mRho = update_f(density)
+        """
+        self.update_f = update_f
+
+    def __update(self, density):
+        if self.update_f is not None:
+            self.gw, self.gs, self.grho, self.mw, self.ms, self.mrho = \
+                self.update_f(density)
+
+
 class Core(object):
     """Solve model equations for the core of a neutron star
 
@@ -37,7 +90,15 @@ class Core(object):
 
     """
 
-    __MODELS = ['nl3']
+    __MODELS = {}
+
+    __MODELS['nl3'] = models()
+    __MODELS['nl3'].coupling_constants(12.8679990675,
+                                       10.2170005383,
+                                       8.92188320928)
+    __MODELS['nl3'].masses(782.501,
+                           508.194,
+                           763.0)
 
     def __init__(self, m, model, Yp=0.5, verbose=False):
         """Solve model equations for the core of a neutron star
@@ -61,20 +122,18 @@ class Core(object):
         self.__m = m
         self.__Yp = Yp
 
-        if model in self.__MODELS:
+        if isinstance(model, str):
+            if model in self.__MODELS.keys():
+                self.model = self.__MODELS[model]
+            else:
+                raise ValueError(f"model must be one of {self.__MODELS.keys()}"
+                                 f", {model} given")
+        elif isinstance(model, models):
             self.model = model
         else:
-            raise ValueError(f"model must be one of {self.__MODELS}, "
-                             f"{model} given")
+            raise TypeError("model must be valid string or instance of models")
 
         self.__hc = 197.33      # MeV.fm (?)
-
-        self.__gw = 12.8679990675   # coupling constant omega-nucleon
-        self.__gs = 10.2170005383   # coupling constant sigma-nucleon
-        self.__gRho = 8.92188320928  # coupling constant rho-nucleon
-        self.__ms = 508.194          # sigma mass in MeV
-        self.__mw = 782.501          # omega mass in MeV
-        self.__mRho = 763.0          # rho mass in MeV
 
         return None
 
@@ -182,19 +241,24 @@ class Core(object):
         p = np.zeros_like(self.__nB)   # barionic pressure  (MeV/fm^3)
 
         for i, n in enumerate(self.__nB):
-            k = (1.5 * (np.pi**2) * n)**(1/3)  # fermi momentum
-            w0 = self.__gw * n / self.__mw**2  # meson omega
-            nB_p = self.__Yp * n               # density of protons
-            nB_n = (1.0 - self.__Yp) * n       # density of electrons
-            rho = 0.5 * self.__gRho * (nB_p - nB_n) / self.__mw**2  # meson rho
 
-            sigma = SolveSigma(self.__gs, self.__ms, self.m, k,
+            self.model.__update(n)      # update model
+
+            k = (1.5 * (np.pi**2) * n)**(1/3)        # fermi momentum
+            w0 = self.model.gw * n / self.model.mw**2  # meson omega
+            nB_p = self.__Yp * n         # density of protons
+            nB_n = (1.0 - self.__Yp) * n  # density of electrons
+
+            # meson rho
+            rho = 0.5 * self.model.grho * (nB_p - nB_n) / self.model.mw**2
+
+            sigma = SolveSigma(self.model.gs, self.model.ms, self.m, k,
                                tol=1.0e-5, n_seeds=100)
             self.vprint(i, 'k = ', k, ' sigma = ', sigma)
-            e[i] = energy(self.__ms, self.__mRho, rho, sigma,
-                          self.__mw, w0, k, self.__gs, self.m)
-            p[i] = pressure(self.__ms, self.__mRho, rho, sigma,
-                            self.__mw, w0, k, self.__gs, self.m)
+            e[i] = energy(self.model.ms, self.model.mrho, rho, sigma,
+                          self.model.mw, w0, k, self.model.gs, self.m)
+            p[i] = pressure(self.model.ms, self.model.mrho, rho, sigma,
+                            self.model.mw, w0, k, self.model.gs, self.m)
 
         e = e / self.__hc**3
         p = p / self.__hc**3
