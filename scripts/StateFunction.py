@@ -42,7 +42,7 @@ for i, n in enumerate(nB):
     w0 = gw * n / mw**2                  # meson omega
     nB_p = Yp * n                        # density of protons
     nB_n = (1.0 - Yp ) * n               # density of electrons
-    rho = 0.5 * gRho * (nB_p - nB_n) / mw**2          # meson rho
+    rho = 0.5 * gRho * (nB_p - nB_n) / mRho**2          # meson rho
 
     sigma = ss.SolveSigma(gs, ms, m, k, tol=1.0e-5, n_seeds=100)
     print(i, 'k = ', k, ' sigma = ', sigma)
